@@ -1,0 +1,21 @@
+.list {
+  list-style: none;
+  padding: 1em;
+  display: flex;
+}
+
+.list > * + * {
+  margin-left: 1rem;
+}
+
+.navAnchor {
+  text-anchor: underline 2px;
+}
+
+.navAnchorActive {
+  text-decoration: underline 1px;
+}
+
+.navAnchor:hover {
+  text-decoration: underline 2px;
+}
