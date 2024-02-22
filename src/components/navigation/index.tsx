@@ -23,7 +23,9 @@ export const Navigation = () => {
         aria-label="Global"
       >
         {navRoutes.map((route) => {
-          return link[route.authType](route)
+          const auth = route.authType ?? 'public'
+
+          return link[auth](route)
         })}
 
         {user ? <UserButton /> : null}
