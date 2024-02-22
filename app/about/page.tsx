@@ -1,7 +1,3 @@
 export default function About() {
-  return (
-    <>
-      <main>about sadadasdd</main>
-    </>
-  )
+  return <main>About</main>
 }

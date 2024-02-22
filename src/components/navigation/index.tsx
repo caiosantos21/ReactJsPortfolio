@@ -1,38 +1,35 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { UserButton, useUser } from '@clerk/nextjs'
+import { RouteLink } from '@components/navigation/components/RouteLink'
+import { RouteList } from '@components/navigation/types/RouteList'
+import { navRoutes } from './constants/navRoutes'
 import styles from './navigation.module.css'
 
-const LINKS = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' }
-]
-
 export const Navigation = () => {
-  const pathName = usePathname()
-  const {} = useRouter()
+  const { user } = useUser()
 
-  const isActive = (path: string) => path === pathName
+  const link = {
+    auth: (route: RouteList) => (user ? <RouteLink route={route} /> : null),
+    unauth: (route: RouteList) => (!user ? <RouteLink route={route} /> : null),
+    public: (route: RouteList) => <RouteLink route={route} />
+  }
 
   return (
-    <nav>
-      <ul className={styles.list}>
-        {LINKS.map(({ path, name }) => {
-          return (
-            <li key={path}>
-              <Link
-                href={path}
-                className={
-                  isActive(path) ? styles.navAnchorActive : styles.navAnchor
-                }
-              >
-                {name}
-              </Link>
-            </li>
-          )
+    <header>
+      <nav
+        className={styles.teste}
+        // className="flex items-center justify-between p-6 lg:px-8 h-20 border border-t-0 border-l-0 border-r-0 border-b-gray-600"
+        aria-label="Global"
+      >
+        {navRoutes.map((route) => {
+          return link[route.authType](route)
         })}
-      </ul>
-    </nav>
+
+        {user ? <UserButton /> : null}
+      </nav>
+    </header>
   )
 }
+
+//
