@@ -1,5 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import { Navigation } from '@components/navigation'
+import TanstackProvider from '@providers/TanstackProvider'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -20,11 +21,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className="min-h-screen">
-          <Navigation />
+          <TanstackProvider>
+            <Navigation />
 
-          <div className="flex justify-center items-center p-24">
-            {children}
-          </div>
+            <div className="flex justify-center items-center p-24">
+              {children}
+            </div>
+          </TanstackProvider>
         </body>
       </html>
     </ClerkProvider>
