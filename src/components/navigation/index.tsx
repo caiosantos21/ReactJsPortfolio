@@ -9,9 +9,11 @@ export const Navigation = () => {
   const { user } = useUser()
 
   const link = {
-    auth: (route: RouteList) => (user ? <RouteLink route={route} /> : null),
-    unauth: (route: RouteList) => (!user ? <RouteLink route={route} /> : null),
-    public: (route: RouteList) => <RouteLink route={route} />
+    auth: (route: RouteList) =>
+      user ? <RouteLink key={route.path} route={route} /> : null,
+    unauth: (route: RouteList) =>
+      !user ? <RouteLink key={route.path} route={route} /> : null,
+    public: (route: RouteList) => <RouteLink key={route.path} route={route} />
   }
 
   return (

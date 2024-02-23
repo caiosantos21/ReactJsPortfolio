@@ -1,7 +1,6 @@
 import { RouteList } from '@components/navigation/types/RouteList'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import styles from '../../navigation.module.css'
 
 type RouteLinkProps = { route: RouteList }
 
@@ -16,7 +15,7 @@ export const RouteLink = (props: RouteLinkProps) => {
     <Link
       key={path}
       href={path}
-      className={isActive(path) ? styles.navAnchorActive : styles.navAnchor}
+      className={isActive(path) ? 'nav-bar-link-selected' : 'nav-bar-link'}
     >
       {name}
     </Link>

@@ -72,11 +72,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 }
 
 @layer components {
   .nav-bar {
     @apply flex items-center justify-between p-6 lg:px-8 h-20 border border-t-0 border-l-0 border-r-0 border-b-gray-600;
+  }
+  .nav-bar-link {
+    @apply hover:underline;
+  }
+  .nav-bar-link-selected {
+    @apply underline decoration-2;
   }
 }
