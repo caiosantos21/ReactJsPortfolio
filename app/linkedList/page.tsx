@@ -1,43 +1,40 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { LinkedList } from 'src/study/linkedList'
+import { LinkedList } from 'src/study/linkedList/LinkedList'
 
 export default function LinkedListPage() {
+  const x = useRef<LinkedList<number>>(new LinkedList<number>())
+
   const [renderList, setRenderList] = useState<number[]>([])
-  const [linkedList, setLinkedList] = useState<LinkedList<number>>()
+
+  useEffect(() => {
+    if (renderList.length === 0) {
+      console.log(x)
+      const a = new LinkedList<number>()
+      a.insertAtEnd(10)
+      a.insertAtEnd(20)
+      a.insertAtEnd(30)
+
+      x.current = a
+
+      console.log('a', a.traverse())
+
+      setRenderList(a.traverse())
+    }
+  }, [renderList])
 
   const { register, handleSubmit } = useForm()
 
-  const createDefaultList = () => {
-    const auxList = new LinkedList<number>()
-    auxList.insertInBegin(10)
-    auxList.insertAtEnd(20)
-    auxList.insertAtEnd(30)
-
-    setLinkedList(auxList)
-    setRenderList(auxList.traverse())
-  }
-
-  useEffect(() => {
-    if (!linkedList) {
-      createDefaultList()
-    } else {
-      setRenderList(linkedList.traverse())
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [linkedList])
-
   const onSubmit = handleSubmit((data) => {
-    console.log(data, data.insertAtEnd)
+    const a = x.current
+    a.insertAtEnd(Number(data.insertAtEnd))
 
-    const aux = linkedList
-    aux?.insertAtEnd(Number(data.insertAtEnd))
+    x.current = a
 
-    setLinkedList(aux)
-    setRenderList(aux.traverse())
+    setRenderList(a.traverse())
   })
 
   return (

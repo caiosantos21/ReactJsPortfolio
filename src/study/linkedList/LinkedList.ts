@@ -1,12 +1,4 @@
-class ListNode<T> {
-  data: T
-  prev: ListNode<T> | null = null
-  next: ListNode<T> | null = null
-
-  constructor(data: T) {
-    this.data = data
-  }
-}
+import { ListNode } from './ListNode'
 
 interface ILinkedList<T> {
   insertInBegin(data: T): ListNode<T>
@@ -16,6 +8,8 @@ interface ILinkedList<T> {
   size(): number
   search(comparator: (data: T) => boolean): ListNode<T> | null
 }
+
+//Doubly-linked list
 
 export class LinkedList<T> implements ILinkedList<T> {
   private head: ListNode<T> | null = null
