@@ -14,6 +14,10 @@ interface ILinkedList<T> {
 export class LinkedList<T> implements ILinkedList<T> {
   private head: ListNode<T> | null = null
 
+  constructor(head: ListNode<T> | null = null) {
+    this.head = head
+  }
+
   public insertAtEnd(data: T): ListNode<T> {
     const node = new ListNode(data)
 
