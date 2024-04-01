@@ -24,8 +24,9 @@ export default function RootLayout({
         <body className="min-h-screen">
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
+            themes={['light', 'dark', 'abc']}
             disableTransitionOnChange
           >
             <TanstackProvider>

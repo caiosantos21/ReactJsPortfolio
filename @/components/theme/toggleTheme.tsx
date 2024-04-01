@@ -11,7 +11,7 @@ import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import { useTheme } from 'next-themes'
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme, themes } = useTheme()
 
   return (
     <DropdownMenu>
@@ -26,17 +26,14 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>
-          Light
-        </DropdownMenuItem>
-
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
-          Dark
-        </DropdownMenuItem>
-
-        <DropdownMenuItem onClick={() => setTheme('system')}>
-          System
-        </DropdownMenuItem>
+        {themes.map(
+          (theme) =>
+            theme != 'system' && (
+              <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
+                {theme}
+              </DropdownMenuItem>
+            )
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   )
