@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 type RouteLinkProps = { route: RouteList }
 
 export const RouteLink = (props: RouteLinkProps) => {
-  const { path, name } = props.route
+  const { href, name } = props.route
 
   const pathName = usePathname()
 
@@ -13,9 +13,9 @@ export const RouteLink = (props: RouteLinkProps) => {
 
   return (
     <Link
-      key={path}
-      href={path}
-      className={isActive(path) ? 'nav-bar-link-selected' : 'nav-bar-link'}
+      key={href}
+      href={href}
+      className={isActive(href) ? 'nav-bar-link-selected' : 'nav-bar-link'}
     >
       {name}
     </Link>

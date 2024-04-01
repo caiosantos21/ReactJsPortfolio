@@ -1,10 +1,9 @@
 import { RouteList } from '@components/navigation/types/RouteList'
 
 export const navRoutes: RouteList[] = [
-  { name: 'Home', path: '/', authType: 'public' },
-  { name: 'Dashboard', path: '/dashboard', authType: 'auth' },
-  { name: 'Sign', path: '/sign', authType: 'unauth' },
-  { name: 'Linked List', path: '/linkedList', authType: 'public' },
-  { name: 'About', path: '/about', authType: 'public' },
-  { name: 'Test', path: '/testCard', authType: 'public' }
+  { name: 'Home', href: '/', authType: 'public' },
+  { name: 'Dashboard', href: '/dashboard', authType: 'auth' },
+  { name: 'Sign', href: '/sign', authType: 'unauth' },
+  { name: 'Linked List', href: '/linkedList', authType: 'public' },
+  { name: 'About', href: '/about', authType: 'public' }
 ]

@@ -1,5 +1,6 @@
 'use client'
 
+import { ThemeToggle } from '@/components/theme/toggleTheme'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { RouteLink } from '@components/navigation/components/RouteLink'
 import { RouteList } from '@components/navigation/types/RouteList'
@@ -10,10 +11,10 @@ export const Navigation = () => {
 
   const link = {
     auth: (route: RouteList) =>
-      user ? <RouteLink key={route.path} route={route} /> : null,
+      user ? <RouteLink key={route.href} route={route} /> : null,
     unauth: (route: RouteList) =>
-      !user ? <RouteLink key={route.path} route={route} /> : null,
-    public: (route: RouteList) => <RouteLink key={route.path} route={route} />
+      !user ? <RouteLink key={route.href} route={route} /> : null,
+    public: (route: RouteList) => <RouteLink key={route.href} route={route} />
   }
 
   return (
@@ -24,6 +25,8 @@ export const Navigation = () => {
 
           return link[auth](route)
         })}
+
+        <ThemeToggle />
 
         {user ? <UserButton /> : null}
       </nav>

@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme/themeProvider'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Navigation } from '@components/navigation'
 import TanstackProvider from '@providers/TanstackProvider'
@@ -19,15 +20,22 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="dark">
+      <html lang="en">
         <body className="min-h-screen">
-          <TanstackProvider>
-            <Navigation />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TanstackProvider>
+              <Navigation />
 
-            <div className="flex justify-center items-center p-24">
-              {children}
-            </div>
-          </TanstackProvider>
+              <div className="flex justify-center items-center p-24">
+                {children}
+              </div>
+            </TanstackProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
