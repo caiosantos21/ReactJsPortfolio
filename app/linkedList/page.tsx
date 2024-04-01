@@ -51,7 +51,10 @@ export default function LinkedListPage() {
             placeholder="Number"
             {...register('insertAtEnd')}
           />
-          <Button type="submit">Insert at End</Button>
+
+          <Button variant={'outline'} type="submit">
+            Insert at End
+          </Button>
         </div>
       </form>
     </main>
