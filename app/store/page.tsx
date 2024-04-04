@@ -42,11 +42,13 @@ export default function Store() {
 
   return (
     <main>
-      <TShirtFilter
-        defaultList={data}
-        updateList={updateList}
-        resetList={resetList}
-      />
+      {data ? (
+        <TShirtFilter
+          defaultList={data}
+          updateList={updateList}
+          resetList={resetList}
+        />
+      ) : null}
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 hover:cursor-pointer">
         {tShirts.length > 0
