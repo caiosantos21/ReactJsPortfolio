@@ -23,6 +23,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.tedcamisas.com.br',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.shop77.com.br',
+        pathname: '/**'
       }
     ]
   }

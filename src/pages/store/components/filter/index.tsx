@@ -24,25 +24,28 @@ export const TShirtFilter = (props: TShirtFilterProps) => {
   const [maxPriceFilter, setMaxPriceFilter] = useState(100)
 
   useEffect(() => {
-    const aux = defaultList.filter((item) => {
-      const nameMatch = item.name
-        .toLowerCase()
-        .includes(nameFilter.toLowerCase())
+    if (defaultList) {
+      const aux = defaultList.filter((item) => {
+        const nameMatch = item.name
+          .toLowerCase()
+          .includes(nameFilter.toLowerCase())
 
-      const sizesMatch =
-        sizeFilter.length > 0
-          ? item.sizes.some((r) => sizeFilter.includes(r))
-          : true
+        const sizesMatch =
+          sizeFilter.length > 0
+            ? item.sizes.some((r) => sizeFilter.includes(r))
+            : true
 
-      const priceMatch =
-        minPriceFilter < maxPriceFilter
-          ? item.price > minPriceFilter && item.price < maxPriceFilter
-          : true
+        const priceMatch =
+          minPriceFilter < maxPriceFilter
+            ? item.price > minPriceFilter && item.price < maxPriceFilter
+            : true
 
-      return nameMatch && sizesMatch && priceMatch
-    })
+        return nameMatch && sizesMatch && priceMatch
+      })
 
-    updateList(aux)
+      updateList(aux)
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultList, nameFilter, sizeFilter, minPriceFilter, maxPriceFilter])
 
