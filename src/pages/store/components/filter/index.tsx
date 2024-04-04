@@ -24,7 +24,7 @@ export const TShirtFilter = (props: TShirtFilterProps) => {
   const [maxPriceFilter, setMaxPriceFilter] = useState(100)
 
   useEffect(() => {
-    if (defaultList) {
+    if (defaultList.length > 0) {
       const aux = defaultList.filter((item) => {
         const nameMatch = item.name
           .toLowerCase()
@@ -83,9 +83,10 @@ export const TShirtFilter = (props: TShirtFilterProps) => {
         </div>
 
         <div className="grid w-full max-w-sm items-center gap-2">
-          <Label htmlFor="minPrice">Preço</Label>
+          <Label htmlFor="minPrice">Preço R$</Label>
+
           <div className="flex">
-            <span>R$ {minPriceFilter}</span>
+            <span>{minPriceFilter}</span>
 
             <DoubleSlider
               defaultValue={[minPriceFilter, maxPriceFilter]}
@@ -96,7 +97,7 @@ export const TShirtFilter = (props: TShirtFilterProps) => {
               }}
               {...props}
             />
-            <span>R$ {maxPriceFilter}</span>
+            <span>{maxPriceFilter}</span>
           </div>
         </div>
       </CardContent>
