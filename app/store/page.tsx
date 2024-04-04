@@ -59,7 +59,7 @@ export default function Store() {
                     <CardDescription>{row.brand}</CardDescription>
                   </CardHeader>
 
-                  <CardContent className="grid grid-cols-2 gap-5">
+                  <CardContent className={cn('grid grid-cols-2 gap-5')}>
                     <div className="relative aspect-[500/500]">
                       <Image
                         src={row.img}
@@ -70,10 +70,12 @@ export default function Store() {
                     </div>
 
                     <div className="grid">
-                      <span className="text-lg">R$ {row.price} no PIX</span>
+                      <span className="text-lg text-green-600">
+                        R$ {row.price} no PIX
+                      </span>
 
                       <span className="text-base">
-                        3x de {(row.price / 3).toFixed(2)} no cartão
+                        3x de {(row.price / 3).toFixed(2)} no cartão sem juros
                       </span>
                     </div>
                   </CardContent>

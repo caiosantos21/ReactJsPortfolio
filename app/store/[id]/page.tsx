@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useApiRequest } from 'src/hooks/useApiRequest'
 import { BuyButton } from 'src/pages/storeItem/components/buy'
 import { FreteButton } from 'src/pages/storeItem/components/frete'
+import { TShirtPrice } from 'src/pages/storeItem/components/price'
 import { TShirtSizes } from 'src/pages/storeItem/components/sizes'
 import { TShirt } from 'src/types/Store/TShirt'
 
@@ -41,7 +42,9 @@ export default function StoreItem(props: StoreItemProps) {
             <Image src={data.img} alt="tshirt" width={350} height={350} />
 
             <div>
-              <TShirtSizes sizes={data.sizes} />
+              <TShirtPrice {...data} />
+
+              <TShirtSizes {...data} />
 
               <BuyButton />
 
