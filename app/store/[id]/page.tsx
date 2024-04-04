@@ -38,7 +38,7 @@ export default function StoreItem(props: StoreItemProps) {
             </Label>
           </div>
 
-          <div className="grid grid-cols-2 gap-5 mt-10">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 mt-10">
             <Image src={data.img} alt="tshirt" width={350} height={350} />
 
             <div>
