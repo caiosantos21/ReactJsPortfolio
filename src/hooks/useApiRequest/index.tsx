@@ -1,12 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
-export const useApiRequest = () => {
-  const { isPending, error, data, isFetching } = useQuery({
+type UseApiRequest = {
+  endpoint: string
+}
+
+export const useApiRequest = <T,>(props: UseApiRequest) => {
+  const { endpoint } = props
+
+  const request = useQuery<T>({
     queryKey: ['repoData'],
-    queryFn: () =>
-      axios
-        .get('https://api.github.com/repos/tannerlinsley/react-query')
-        .then((res) => res.data)
+    queryFn: () => axios.get(endpoint).then((res) => res.data)
   })
+
+  return { ...request }
 }

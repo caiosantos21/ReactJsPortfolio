@@ -1,7 +1,7 @@
 'use client'
 
 import { ThemeToggle } from '@/components/theme/toggleTheme'
-import { UserButton, useUser } from '@clerk/nextjs'
+import { useUser } from '@clerk/nextjs'
 import { RouteLink } from '@components/navigation/components/RouteLink'
 import { RouteList } from '@components/navigation/types/RouteList'
 import { navRoutes } from './constants/navRoutes'
@@ -28,7 +28,7 @@ export const Navigation = () => {
 
         <ThemeToggle />
 
-        {user ? <UserButton /> : null}
+        {/* {user ? <UserButton /> : null} */}
       </nav>
     </header>
   )
