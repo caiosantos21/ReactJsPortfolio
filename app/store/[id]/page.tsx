@@ -6,12 +6,19 @@ import { ItemDescription } from 'app/store/[id]/_components/description'
 import { FreteButton } from 'app/store/[id]/_components/frete'
 import { TShirtPrice } from 'app/store/[id]/_components/price'
 import { TShirtSizes } from 'app/store/[id]/_components/sizes'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { useApiRequest } from 'src/hooks/useApiRequest'
 import { TShirt } from 'src/types/Store/TShirt'
 
 type StoreItemProps = {
   params: { id: string }
+}
+
+export const generatedMetadata = ({ params }: StoreItemProps): Metadata => {
+  return {
+    title: `Product ${params.id}`
+  }
 }
 
 const style = 'grid sm:grid-cols-1 md:grid-cols-2 gap-5 mt-10'
