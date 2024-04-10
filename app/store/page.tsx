@@ -8,11 +8,11 @@ import {
   CardTitle
 } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { TShirtFilter } from 'app/store/_components/filter'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useApiRequest } from 'src/hooks/useApiRequest'
-import { TShirtFilter } from 'src/pages/store/components/filter'
 import { TShirt } from 'src/types/Store/TShirt'
 
 export default function Store() {

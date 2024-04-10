@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { cn } from '@/lib/utils'
 import { useEffect, useState } from 'react'
-import { tShirtSizes } from 'src/pages/store/constants/sizes'
+import { tShirtSizeList } from 'src/constants/sizes'
 import { TShirt } from 'src/types/Store/TShirt'
 
 type TShirtFilterProps = {
@@ -74,7 +74,7 @@ export const TShirtFilter = (props: TShirtFilterProps) => {
             variant="outline"
             onValueChange={(e) => setSizeFilter(e)}
           >
-            {tShirtSizes.map((size, index) => (
+            {tShirtSizeList.map((size, index) => (
               <ToggleGroupItem key={index} value={size}>
                 {size}
               </ToggleGroupItem>

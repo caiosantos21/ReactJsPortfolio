@@ -1,13 +1,13 @@
 'use client'
 
 import { Label } from '@/components/ui/label'
+import { BuyButton } from 'app/store/[id]/_components/buy'
+import { ItemDescription } from 'app/store/[id]/_components/description'
+import { FreteButton } from 'app/store/[id]/_components/frete'
+import { TShirtPrice } from 'app/store/[id]/_components/price'
+import { TShirtSizes } from 'app/store/[id]/_components/sizes'
 import Image from 'next/image'
 import { useApiRequest } from 'src/hooks/useApiRequest'
-import { BuyButton } from 'src/pages/storeItem/components/buy'
-import { ItemDescription } from 'src/pages/storeItem/components/description'
-import { FreteButton } from 'src/pages/storeItem/components/frete'
-import { TShirtPrice } from 'src/pages/storeItem/components/price'
-import { TShirtSizes } from 'src/pages/storeItem/components/sizes'
 import { TShirt } from 'src/types/Store/TShirt'
 
 type StoreItemProps = {
